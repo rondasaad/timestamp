@@ -10,7 +10,7 @@ function parseTimeUrl(date_url){
   
   // test if url is a number
   if(/^\d+$/.test(date_url))
-    date_url = Number(date_url);
+    date_url = Number(date_url) * 1000;
   
   var date = new Date(date_url);
   
@@ -23,7 +23,7 @@ function parseTimeUrl(date_url){
                 "October", "November", "December"][date.getUTCMonth()];
     var year = date.getUTCFullYear();
     
-    unix = date.getTime();
+    unix = Math.floor(date.getTime()/ 1000);
     natural = month + ' ' + day + ', ' + year;
   }
   
